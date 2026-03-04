@@ -111,6 +111,9 @@ class NeuralNet:
             return np.argmax(self.layers[-1].output) 
         else :
             return self.layers[-1].output
+    
+    def calc_precision(self,class_targets):
+        pass
         
 
 

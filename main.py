@@ -9,16 +9,6 @@ if not isinstance(sys.argv[1],str):
 
 network = NeuralNet(file=file)
 data = np.load(sys.argv[1])
-images = data["images"].reshape(10,-1)/255
+images = data["images"].reshape(data["images"].shape[0],-1)/255
 
 results = network.solve_batch(images)
-print(results)
-
-plt.figure(figsize=(10, 4))
-
-for i in range(len(data["images"])):
-    plt.subplot(2, 5, i+1)
-    plt.imshow(data["images"][i], cmap="gray")
-    plt.title(f"Pred: {results[i]}")
-    plt.axis("off")
-plt.show()
